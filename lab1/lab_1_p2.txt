@@ -1,0 +1,22 @@
+import numpy as np 
+
+# This is part 2 of the first lab in Advanced Lab
+# This part will deal with inputting sets of data and 
+# reading them to find the average and standard deviation
+
+a = np.genfromtxt("1D_data.txt")
+#a = [0, 3, 5, 8]
+
+n,x, x2 = 0,0,0
+
+for array_element in a:
+    n = n + 1 
+    x = x + array_element
+    x2 = x2 + array_element**2
+
+print(n, " points: average = ", x / n)
+x_avg = x / n 
+print("Standard deviation with ", n, " points: ", np.sqrt((x2 - n*(x_avg**2))/(n-1)))
+
+print("Numpy mean: ", np.mean(a))
+print("Numpy standard deviation: ", np.std(a, ddof=1))
